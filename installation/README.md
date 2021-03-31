@@ -17,5 +17,11 @@
     conda activate (venv-name)
 ### Deactivate virtual environment
     conda deactivate (venv-name)
-# Package Installation  
+# Package Installation
+### Open Anaconda Prompt/ Anaconda Powershell Prompt/ Terminal
+### Activate virtual environment
+    conda activate (venv-name)
+### Go to the directory
+    cd [path]/Novel-Coronavirus-Pneumonia-Face-Mask-Detector-Workshop/PC Base
+### Install the requirements
     pip install -r requirements.txt
