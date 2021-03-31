@@ -24,7 +24,7 @@ INIT_LR = 1e-4
 EPOCHS = 20
 BS = 32
 
-DIRECTORY = r"dataset" # 使用時記得改路徑
+DIRECTORY = r"dataset" # 使用時記得改路徑, remember change the directory
 CATEGORIES = ["with_mask", "without_mask"]
 
 
@@ -33,7 +33,7 @@ print("[INFO] loading images...")
 data = []
 labels = []
 
-for category in CATEGORIES:
+for category in CATEGORIES: # inside the category
     path = os.path.join(DIRECTORY, category)
     for img in os.listdir(path):
     	img_path = os.path.join(path, img)
@@ -53,10 +53,10 @@ data = np.array(data, dtype="float32")
 labels = np.array(labels)
 
 (trainX, testX, trainY, testY) = train_test_split(data, labels,
-	test_size=0.20, stratify=labels, random_state=42)
+	test_size=0.20, stratify=labels, random_state=42) # create validation and train set
 
 
-aug = ImageDataGenerator(
+aug = ImageDataGenerator( # image normalizations
 	rotation_range=20,
 	zoom_range=0.15,
 	width_shift_range=0.2,
@@ -67,10 +67,10 @@ aug = ImageDataGenerator(
 
 
 baseModel = MobileNetV2(weights="imagenet", include_top=False,
-	input_tensor=Input(shape=(224, 224, 3)))
+	input_tensor=Input(shape=(224, 224, 3))) # include mobilenetv2
 
 
-headModel = baseModel.output
+headModel = baseModel.output # get the output, and go on do the CNN
 headModel = AveragePooling2D(pool_size=(7, 7))(headModel)
 headModel = Flatten(name="flatten")(headModel)
 headModel = Dense(128, activation="relu")(headModel)
@@ -91,7 +91,7 @@ model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
 
-print("[INFO] training head...")
+print("[INFO] fit the moodel now...")
 H = model.fit(
 	aug.flow(trainX, trainY, batch_size=BS),
 	steps_per_epoch=len(trainX) // BS,
@@ -114,7 +114,7 @@ print(classification_report(testY.argmax(axis=1), predIdxs,
 print("[INFO] saving mask detector model...")
 model.save("mask_detector.model", save_format="h5")
 
-
+print("[INFO] drawing train and validation chart")
 N = EPOCHS
 plt.style.use("ggplot")
 plt.figure()
