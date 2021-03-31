@@ -25,3 +25,9 @@
     cd [path]/Novel-Coronavirus-Pneumonia-Face-Mask-Detector-Workshop/PC Base
 ### Install the requirements
     pip install -r requirements.txt
+### End of installation
+   Now, you have installed all the required packages of this repository. All you need to do is choose the platform on which you want to perform.
+#### PC base
+   If you want to run on your pc with camera, please click [here](https://github.com/KevinTsaiCodes/Novel-Coronavirus-Pneumonia-Face-Mask-Detector-Workshop/blob/main/PC%20Base/README.md) to continue.
+#### Andorid APP
+   If you want to run on your pc with camera, please click [here](https://github.com/KevinTsaiCodes/Novel-Coronavirus-Pneumonia-Face-Mask-Detector-Workshop/tree/main/Android%20APP) to continue. [**Updating**]
