@@ -18,3 +18,4 @@ If you want to run on your pc with camera, please click [here](https://github.co
 [4] Yolo: You Only Look Once: Unified, Real-Time Object Detection
 
 ## My others workshop
+  [NVIDIA Jetbot Workshop](https://github.com/KevinTsaiCodes/nvidia-jetbot-workshop)
